@@ -1,2 +1,0 @@
-# KimMinJoo-practice
-👾
