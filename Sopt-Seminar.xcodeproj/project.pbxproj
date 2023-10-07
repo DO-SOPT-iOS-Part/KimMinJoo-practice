@@ -14,6 +14,7 @@
 		09A7EEA42AD05C370055937E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A7EEA32AD05C370055937E /* Assets.xcassets */; };
 		09A7EEA72AD05C370055937E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09A7EEA52AD05C370055937E /* LaunchScreen.storyboard */; };
 		09A7EED12AD065430055937E /* ResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7EED02AD065430055937E /* ResultVC.swift */; };
+		09EDF8092AD1420900724D27 /* GetDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EDF8082AD1420900724D27 /* GetDataProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		09A7EEA62AD05C370055937E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09A7EEA82AD05C370055937E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09A7EED02AD065430055937E /* ResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVC.swift; sourceTree = "<group>"; };
+		09EDF8082AD1420900724D27 /* GetDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				09A7EE9C2AD05C370055937E /* SceneDelegate.swift */,
 				09A7EE9E2AD05C370055937E /* ViewController.swift */,
 				09A7EED02AD065430055937E /* ResultVC.swift */,
+				09EDF8082AD1420900724D27 /* GetDataProtocol.swift */,
 				09A7EEA02AD05C370055937E /* Main.storyboard */,
 				09A7EEA32AD05C370055937E /* Assets.xcassets */,
 				09A7EEA52AD05C370055937E /* LaunchScreen.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09EDF8092AD1420900724D27 /* GetDataProtocol.swift in Sources */,
 				09A7EE9F2AD05C370055937E /* ViewController.swift in Sources */,
 				09A7EED12AD065430055937E /* ResultVC.swift in Sources */,
 				09A7EE9B2AD05C370055937E /* AppDelegate.swift in Sources */,

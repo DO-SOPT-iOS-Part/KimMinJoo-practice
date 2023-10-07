@@ -14,42 +14,41 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func idTextFieldDidEditing(_ sender: Any) {
-        guard let textField = sender as? UITextField else {return}
+        guard let textField = sender as? UITextField else { return }
         if let idText = textField.text {
             self.idText = idText
         }
     }
     
     @IBAction func passwordTextFieldDidEditing(_ sender: Any) {
-        guard let textField = sender as? UITextField else {return}
+        guard let textField = sender as? UITextField else { return }
         if let passwordText = textField.text {
             self.passwordText = passwordText
         }
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        print("tapped")
-        
-        print("\(idText)\n\(passwordText)")
         pushToResultVC()
-//        presentToResultVC()
-//        performSegue(withIdentifier: "moveToResult", sender: sender)
     }
     
     func pushToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC else {return}
+        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else {return}
+        resultVC.setLabelText(id: self.idText,
+                              password: self.passwordText)
+        resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
+        
+//        resultVC.loginDataCompletion = { data in
+//            print("클로저로 받아온 email : \(data[0]), 클로저로 받아온 password : \(data[1])")
+//        }
     }
-
-    func presentToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(withIdentifier: "ResultVC") as? ResultVC else {return}
-    //  self.navigationController?.present(resultVC, animated: true)
-        self.present(resultVC, animated: true)
-    }
-    
 }
 
+extension ViewController: GetDataProtocol {
+    func getLoginData(email: String, password: String) {
+        print("받아온 email : \(email), 받아온 password : \(password)")
+    }
+}
