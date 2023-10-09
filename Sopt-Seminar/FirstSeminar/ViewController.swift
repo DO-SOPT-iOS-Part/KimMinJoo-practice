@@ -38,11 +38,7 @@ class ViewController: UIViewController {
             self.passwordText = passwordText
         }
     }
-    
-//    @IBAction func loginButtonTapped(_ sender: Any) {
-//        pushToResultVC()
-//    }
-//    
+
     func pushToResultVC() {
         guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else {return}
         resultVC.setLabelText(id: self.idText,
