@@ -17,12 +17,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    let disposeBag = DisposeBag()
-    let viewModel = LoginViewModel()
+    private let disposeBag = DisposeBag()
+    private let viewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupControl()
+        bindViewModel()
     }
     
     @IBAction func idTextFieldDidEditing(_ sender: Any) {
@@ -41,19 +41,14 @@ class ViewController: UIViewController {
 
     func pushToResultVC() {
         guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else {return}
-        resultVC.setLabelText(id: self.idText,
-                              password: self.passwordText)
+        resultVC.setLabelText(id: self.idText, password: self.passwordText)
         resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
-        
-        //        resultVC.loginDataCompletion = { data in
-        //            print("클로저로 받아온 email : \(data[0]), 클로저로 받아온 password : \(data[1])")
-        //        }
     }
 }
 
 extension ViewController {
-    private func setupControl() {
+    private func bindViewModel() {
         idTextField.rx.text
             .orEmpty
             .bind(to: viewModel.emailObserver)
@@ -66,13 +61,7 @@ extension ViewController {
         
         viewModel.isValid.bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
-        
-        viewModel.isValid
-            .map { $0 ? 1 : 0.3 }
-            .bind(to: loginButton.rx.alpha)
-            .disposed(by: disposeBag)
-        
-        
+
         loginButton.rx.tap.subscribe(
             onNext: { [weak self] _ in
                 self?.pushToResultVC()
