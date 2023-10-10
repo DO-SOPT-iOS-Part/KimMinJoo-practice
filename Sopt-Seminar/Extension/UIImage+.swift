@@ -2,7 +2,7 @@
 //  UIImage+.swift
 //  Sopt-Seminar
 //
-//  Created by Minjoo Kim on 10/10/23.
+//  Created by Minjoo Kim on 10/11/23.
 //
 
 import UIKit
