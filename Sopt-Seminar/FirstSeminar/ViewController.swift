@@ -24,23 +24,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
     }
-    
-    @IBAction func idTextFieldDidEditing(_ sender: Any) {
-        guard let textField = sender as? UITextField else { return }
-        if let idText = textField.text {
-            self.idText = idText
-        }
-    }
-    
-    @IBAction func passwordTextFieldDidEditing(_ sender: Any) {
-        guard let textField = sender as? UITextField else { return }
-        if let passwordText = textField.text {
-            self.passwordText = passwordText
-        }
-    }
 
     func pushToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else {return}
+        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else { return }
         resultVC.setLabelText(id: self.idText, password: self.passwordText)
         resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
@@ -51,36 +37,28 @@ extension ViewController {
     private func bindViewModel() {
         idTextField.rx.text
             .orEmpty
+            .do(onNext: { [weak self] text in
+                self?.idText = text
+            })
             .bind(to: viewModel.emailObserver)
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text
             .orEmpty
+            .do(onNext: { [weak self] text in
+                self?.passwordText = text
+            })
             .bind(to: viewModel.passwordObserver)
             .disposed(by: disposeBag)
         
         viewModel.isValid.bind(to: loginButton.rx.isEnabled)
             .disposed(by: disposeBag)
-
+        
         loginButton.rx.tap.subscribe(
             onNext: { [weak self] _ in
                 self?.pushToResultVC()
             }
         ).disposed(by: disposeBag)
-    }
-}
-
-extension ViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        
-        let text = (textField.text! as NSString).replacingCharacters(in: range, with: string)
-        
-        if !text.isEmpty {
-            loginButton.isEnabled = true
-        } else {
-            loginButton.isEnabled = false
-        }
-        return true
     }
 }
 

@@ -7,42 +7,81 @@
 
 import UIKit
 
+enum ColorEnum {
+    case pink
+    case blue
+}
+
 class ResultVC: UIViewController {
     
-//    var loginDataCompletion: (([String]) -> Void)?    // closure
-    
-    @IBOutlet weak var IdLabel: UILabel!
-    @IBOutlet weak var PasswordLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var heartImageView: UIImageView!
+    @IBOutlet weak var colorSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var backButton: UIButton!
     
     var email: String = ""
     var password: String = ""
     
     var delegate: GetDataProtocol?
 
-    private func bindText() {
-        self.IdLabel.text = "email : \(email)"
-        self.PasswordLabel.text = "password : \(password)"
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setUI()
+        bindText()
+    }
+}
+
+extension ResultVC {
+    
+    private func setUI() {
+        backButton.tintColor = .pink
     }
     
+    private func bindText() {
+        self.idLabel.text = "Email\n\(self.email)"
+        self.passwordLabel.text = "Password\n\(self.password)"
+    }
+    
+    private func switchColor(color: ColorEnum) {
+        switch color {
+        case .pink:
+            self.heartImageView.image = Images.pinkHeart
+            self.backButton.tintColor = .pink
+            self.colorSegmentedControl.backgroundColor = .pink
+        case .blue:
+            self.heartImageView.image = Images.blueHeart
+            self.backButton.tintColor = .blue
+            self.colorSegmentedControl.backgroundColor = .blue
+        }
+    }
+    
+    @IBAction private func backButtonTapped(_ sender: Any) {
+        if let navigationController = self.navigationController {
+            navigationController.popViewController(animated: false)
+        } else {
+            self.dismiss(animated: false)
+        }
+        delegate?.getLoginData(email: self.email, password: self.password)
+    }
+    
+    @IBAction private func changedColor(_ sender: Any) {
+        switch colorSegmentedControl.selectedSegmentIndex {
+        case 0:
+            switchColor(color: .pink)
+        case 1:
+            switchColor(color: .blue)
+        default:
+            return
+        }
+    }
+    
+}
+
+extension ResultVC {
     func setLabelText(id: String, password: String) {
         self.email = id
         self.password = password
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        bindText()
-    }
-
-    @IBAction func backButtonTapped(_ sender: Any) {
-        if let navigationController = self.navigationController {
-            navigationController.popViewController(animated: true)
-        } else {
-            self.dismiss(animated: true)
-        }
-        delegate?.getLoginData(email: self.email, password: self.password)
-        
-//        guard let loginDataCompletion else {return}
-//        loginDataCompletion([self.email, self.password])  // closure
-    }
 }
