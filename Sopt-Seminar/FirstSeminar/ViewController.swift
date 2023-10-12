@@ -24,13 +24,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         bindViewModel()
     }
-
-    func pushToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else { return }
-        resultVC.setLabelText(id: self.idText, password: self.passwordText)
-        resultVC.delegate = self
-        self.navigationController?.pushViewController(resultVC, animated: true)
-    }
 }
 
 extension ViewController {
@@ -59,6 +52,13 @@ extension ViewController {
                 self?.pushToResultVC()
             }
         ).disposed(by: disposeBag)
+    }
+    
+    private func pushToResultVC() {
+        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else { return }
+        resultVC.setLabelText(id: self.idText, password: self.passwordText)
+        resultVC.delegate = self
+        self.navigationController?.pushViewController(resultVC, animated: true)
     }
 }
 

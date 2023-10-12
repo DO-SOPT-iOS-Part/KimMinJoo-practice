@@ -75,7 +75,6 @@ extension ResultVC {
             return
         }
     }
-    
 }
 
 extension ResultVC {
