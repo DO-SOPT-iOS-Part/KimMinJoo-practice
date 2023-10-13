@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     private var idText: String = ""
     private var passwordText: String = ""
     @IBOutlet weak var descriptionLabel: UILabel!

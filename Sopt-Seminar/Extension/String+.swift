@@ -16,19 +16,19 @@ extension String {
     
     func isContainEnglish() -> Bool {
         let pattern = "[A-Za-z]+"
-        guard let isContain = self.range(of: pattern, options: .regularExpression) else { return false}
+        guard let isContain = self.range(of: pattern, options: .regularExpression) else { return false }
         return true
     }
     
     func isContainNumber() -> Bool {
         let pattern = ".*[0-9]+.*"
-        guard let isContain = self.range(of: pattern, options: .regularExpression) else { return false}
+        guard let isContain = self.range(of: pattern, options: .regularExpression) else { return false }
         return true
     }
     
     func isContainNumberAndAlphabet() -> Bool {
         let pattern = "^[0-9a-zA-Z]*$"
-        guard let isContain = self.range(of: pattern, options: .regularExpression) else { return false}
+        guard let isContain = self.range(of: pattern, options: .regularExpression) else { return false }
         return true
     }
 }

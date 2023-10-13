@@ -8,7 +8,7 @@
 import RxSwift
 import RxRelay
 
-class LoginViewModel {
+final class LoginViewModel {
     let emailObserver = BehaviorRelay<String>(value: "")
     let passwordObserver = BehaviorRelay<String>(value: "")
 

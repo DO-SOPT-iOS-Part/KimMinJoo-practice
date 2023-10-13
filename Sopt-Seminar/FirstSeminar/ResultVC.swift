@@ -12,7 +12,7 @@ enum ColorEnum {
     case blue
 }
 
-class ResultVC: UIViewController {
+final class ResultVC: UIViewController {
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
