@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LoginViewController.swift
 //  Sopt-Seminar
 //
 //  Created by Minjoo Kim on 2023/10/07.
@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-final class ViewController: UIViewController {
+final class LoginViewController: UIViewController {
     private var idText: String = ""
     private var passwordText: String = ""
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -26,7 +26,7 @@ final class ViewController: UIViewController {
     }
 }
 
-extension ViewController {
+extension LoginViewController {
     private func bindViewModel() {
         idTextField.rx.text
             .orEmpty
@@ -55,14 +55,14 @@ extension ViewController {
     }
     
     private func pushToResultVC() {
-        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultVC else { return }
+        guard let resultVC = self.storyboard?.instantiateViewController(identifier: "ResultVC") as? ResultViewController else { return }
         resultVC.setLabelText(id: self.idText, password: self.passwordText)
         resultVC.delegate = self
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
 }
 
-extension ViewController: GetDataProtocol {
+extension LoginViewController: GetDataProtocol {
     func getLoginData(email: String, password: String) {
         print("받아온 email : \(email), 받아온 password : \(password)")
     }

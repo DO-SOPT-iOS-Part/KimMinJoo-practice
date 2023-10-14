@@ -1,5 +1,5 @@
 //
-//  ResultVC.swift
+//  ResultViewController.swift
 //  Sopt-Seminar
 //
 //  Created by Minjoo Kim on 2023/10/07.
@@ -12,7 +12,7 @@ enum ColorEnum {
     case blue
 }
 
-final class ResultVC: UIViewController {
+final class ResultViewController: UIViewController {
     
     @IBOutlet weak var idLabel: UILabel!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -32,7 +32,7 @@ final class ResultVC: UIViewController {
     }
 }
 
-extension ResultVC {
+extension ResultViewController {
     
     private func setUI() {
         backButton.tintColor = .pink
@@ -77,7 +77,7 @@ extension ResultVC {
     }
 }
 
-extension ResultVC {
+extension ResultViewController {
     func setLabelText(id: String, password: String) {
         self.email = id
         self.password = password
