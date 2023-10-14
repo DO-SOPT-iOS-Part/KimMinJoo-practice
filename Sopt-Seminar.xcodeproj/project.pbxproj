@@ -21,6 +21,8 @@
 		098C40202AD40A100027F3A5 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 098C401F2AD40A100027F3A5 /* RxSwift */; };
 		098C40222AD40AF70027F3A5 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C40212AD40AF70027F3A5 /* LoginModel.swift */; };
 		098C40242AD40E6A0027F3A5 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098C40232AD40E6A0027F3A5 /* String+.swift */; };
+		0994C7052ADA74630058A27B /* StackViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0994C7042ADA74630058A27B /* StackViewViewController.swift */; };
+		0994C7072ADA81630058A27B /* ScrollViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0994C7062ADA81630058A27B /* ScrollViewViewController.swift */; };
 		09A7EE9B2AD05C370055937E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7EE9A2AD05C370055937E /* AppDelegate.swift */; };
 		09A7EE9D2AD05C370055937E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7EE9C2AD05C370055937E /* SceneDelegate.swift */; };
 		09A7EE9F2AD05C370055937E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A7EE9E2AD05C370055937E /* LoginViewController.swift */; };
@@ -39,6 +41,8 @@
 		098C40012AD409560027F3A5 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		098C40212AD40AF70027F3A5 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		098C40232AD40E6A0027F3A5 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		0994C7042ADA74630058A27B /* StackViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewViewController.swift; sourceTree = "<group>"; };
+		0994C7062ADA81630058A27B /* ScrollViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewViewController.swift; sourceTree = "<group>"; };
 		09A7EE972AD05C370055937E /* Sopt-Seminar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sopt-Seminar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A7EE9A2AD05C370055937E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09A7EE9C2AD05C370055937E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 			children = (
 				0961BD922ADA5EC700983283 /* AutoLayoutViewController.swift */,
 				0961BD9A2ADA63A300983283 /* BadukViewController.swift */,
+				0994C7042ADA74630058A27B /* StackViewViewController.swift */,
+				0994C7062ADA81630058A27B /* ScrollViewViewController.swift */,
 			);
 			path = SecondSeminar;
 			sourceTree = "<group>";
@@ -240,6 +246,7 @@
 				0961BD9B2ADA63A300983283 /* BadukViewController.swift in Sources */,
 				098C40222AD40AF70027F3A5 /* LoginModel.swift in Sources */,
 				093CF7F62AD5A9EE00810DAD /* Colors.swift in Sources */,
+				0994C7072ADA81630058A27B /* ScrollViewViewController.swift in Sources */,
 				09EDF8092AD1420900724D27 /* GetDataProtocol.swift in Sources */,
 				098C40242AD40E6A0027F3A5 /* String+.swift in Sources */,
 				09A7EE9F2AD05C370055937E /* LoginViewController.swift in Sources */,
@@ -249,6 +256,7 @@
 				093CF7F82AD5A9F900810DAD /* Images.swift in Sources */,
 				093CF7FA2AD5AA6700810DAD /* UIImage+.swift in Sources */,
 				098C40022AD409560027F3A5 /* LoginViewModel.swift in Sources */,
+				0994C7052ADA74630058A27B /* StackViewViewController.swift in Sources */,
 				09A7EE9D2AD05C370055937E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

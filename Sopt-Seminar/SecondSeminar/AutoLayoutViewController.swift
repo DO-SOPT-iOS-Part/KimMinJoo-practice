@@ -7,9 +7,6 @@
 
 import UIKit
 
-import SnapKit
-import Then
-
 class AutoLayoutViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -52,26 +49,27 @@ extension AutoLayoutViewController {
             self.view.addSubview(view)
         }
         
-        NSLayoutConstraint.activate([yellowColorbox.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0),
-                                     yellowColorbox.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-                                     yellowColorbox.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
-                                     yellowColorbox.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4)])
+        let height = UIScreen.main.bounds.height / 4
+        let width = UIScreen.main.bounds.width / 2
+        NSLayoutConstraint.activate([yellowColorbox.topAnchor.constraint(equalTo: self.view.topAnchor),
+                                     yellowColorbox.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                                     yellowColorbox.heightAnchor.constraint(equalToConstant: height),
+                                     yellowColorbox.widthAnchor.constraint(equalToConstant: width)])
         
-        NSLayoutConstraint.activate([greenColorbox.topAnchor.constraint(equalTo: self.yellowColorbox.bottomAnchor, constant: 0),
-                                     greenColorbox.leadingAnchor.constraint(equalTo: self.yellowColorbox.trailingAnchor, constant: 0),
-                                     greenColorbox.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
-                                     greenColorbox.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4)])
+        NSLayoutConstraint.activate([greenColorbox.topAnchor.constraint(equalTo: self.yellowColorbox.bottomAnchor),
+                                     greenColorbox.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                                     greenColorbox.heightAnchor.constraint(equalToConstant: height),
+                                     greenColorbox.widthAnchor.constraint(equalToConstant: width)])
         
-        NSLayoutConstraint.activate([blackColorbox.topAnchor.constraint(equalTo: self.greenColorbox.bottomAnchor, constant: 0),
-                                     blackColorbox.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0),
-                                     blackColorbox.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
-                                     blackColorbox.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4)])
+        NSLayoutConstraint.activate([blackColorbox.topAnchor.constraint(equalTo: self.greenColorbox.bottomAnchor),
+                                     blackColorbox.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                                     blackColorbox.heightAnchor.constraint(equalToConstant: height),
+                                     blackColorbox.widthAnchor.constraint(equalToConstant: width)])
         
-        NSLayoutConstraint.activate([blueColorbox.topAnchor.constraint(equalTo: self.blackColorbox.bottomAnchor, constant: 0),
-                                     blueColorbox.leadingAnchor.constraint(equalTo: self.blackColorbox.trailingAnchor, constant: 0),
-                                     blueColorbox.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width / 2),
-                                     blueColorbox.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height / 4)])
+        NSLayoutConstraint.activate([blueColorbox.topAnchor.constraint(equalTo: self.blackColorbox.bottomAnchor),
+                                     blueColorbox.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                                     blueColorbox.heightAnchor.constraint(equalToConstant: height),
+                                     blueColorbox.widthAnchor.constraint(equalToConstant: width)])
         
-
     }
 }

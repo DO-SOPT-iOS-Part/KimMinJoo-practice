@@ -62,7 +62,7 @@ class BadukViewController: UIViewController {
 
     var shield: UIView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .skyblue
         return view
     }()
 }
