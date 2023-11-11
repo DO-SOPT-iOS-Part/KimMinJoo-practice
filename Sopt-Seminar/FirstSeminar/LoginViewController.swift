@@ -30,8 +30,9 @@ extension LoginViewController {
     private func bindViewModel() {
         idTextField.rx.text
             .orEmpty
-            .do(onNext: { [weak self] text in
-                self?.idText = text
+            .withUnretained(self)
+            .do(onNext: { (viewController, text) in 
+//                self?.idText = text
             })
             .bind(to: viewModel.emailObserver)
             .disposed(by: disposeBag)
