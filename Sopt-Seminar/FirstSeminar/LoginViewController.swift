@@ -28,15 +28,6 @@ final class LoginViewController: UIViewController {
 
 extension LoginViewController {
     private func bindViewModel() {
-        idTextField.rx.text
-            .orEmpty
-            .withUnretained(self)
-            .do(onNext: { (viewController, text) in 
-//                self?.idText = text
-            })
-            .bind(to: viewModel.emailObserver)
-            .disposed(by: disposeBag)
-        
         passwordTextField.rx.text
             .orEmpty
             .do(onNext: { [weak self] text in
