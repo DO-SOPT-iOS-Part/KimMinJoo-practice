@@ -51,8 +51,8 @@ extension ResultViewController {
             self.colorSegmentedControl.backgroundColor = .pink
         case .blue:
             self.heartImageView.image = Images.blueHeart
-            self.backButton.tintColor = .blue
-            self.colorSegmentedControl.backgroundColor = .blue
+            self.backButton.tintColor = .skyblue
+            self.colorSegmentedControl.backgroundColor = .skyblue
         }
     }
     
